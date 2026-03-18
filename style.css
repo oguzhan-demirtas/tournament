@@ -1,27 +1,246 @@
-body {
-    font-family: Arial;
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.match {
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* SCREENLER */
+.screen {
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-top: 50px;
+    padding: 20px;
 }
 
-.card {
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 30px;
+    color: #cccccc;
+    font-size: 18px;
+}
+
+/* BUTTON */
+button {
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
+    background: #ff7b00;
+    color: white;
+    transition: 0.3s ease;
 }
 
-.card img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
+button:hover {
+    transform: scale(1.08);
+    background: #ff9500;
+    box-shadow: 0 0 20px rgba(255, 123, 0, 0.8);
+}
+
+/* MENU ICON */
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    transition: left 0.3s ease, color 0.2s ease, transform 0.2s ease;
+    z-index: 1100;
+    user-select: none;
+}
+
+.menu-icon:hover {
+    color: #ff7b00;
+    transform: scale(1.1);
+}
+
+.menu-icon.active {
+    left: 300px;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #1e2a38;
+    padding: 30px 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 16px 0;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.9;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.sidebar li:hover {
+    color: #ff7b00;
+    transform: translateX(5px);
+}
+
+/* ROUND TITLE */
+#round-title {
+    font-size: 34px;
+    margin-bottom: 35px;
+    color: #ff7b00;
+}
+
+/* MATCH AREA */
+.match {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+    width: 250px;
+    background: #1e2a38;
+    border-radius: 22px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 3px solid transparent;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(255, 123, 0, 0.5);
+}
+
+.card.selected {
+    border: 3px solid #ff7b00;
+    transform: scale(1.08);
+    box-shadow: 0 0 24px rgba(255, 123, 0, 0.7);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+.card h3 {
+    margin-top: 14px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+/* VS */
+.vs {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff7b00;
+}
+
+/* RESULT */
+#winner-img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 0 25px rgba(255, 123, 0, 0.5);
+}
+
+#winner-name {
+    font-size: 34px;
+    margin: 20px 0;
+    color: #ff7b00;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .match {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .vs {
+        font-size: 28px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .sidebar {
+        width: 240px;
+        left: -240px;
+    }
+
+    .sidebar h2 {
+        font-size: 22px;
+    }
+
+    .sidebar li {
+        font-size: 15px;
+    }
+
+    .menu-icon.active {
+        left: 260px;
+    }
 }

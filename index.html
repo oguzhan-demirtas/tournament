@@ -2,42 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tournament App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Tournament</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- MENU ICON -->
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar" class="sidebar">
+        <h2>Categories</h2>
+        <ul>
+            <li>🍔 Foods</li>
+            <li>🎬 Movies</li>
+            <li>⚽ Players</li>
+            <li>🚗 Cars</li>
+        </ul>
+    </div>
+
     <!-- START SCREEN -->
-    <div id="start-screen">
-        <h1>Food Tournament</h1>
-        <button onclick="startGame()">Start</button>
+    <div id="start-screen" class="screen">
+        <div class="container">
+            <h1>Food Tournament</h1>
+            <p>Choose your favorite and find the champion!</p>
+            <button onclick="startGame()">Start</button>
+        </div>
     </div>
 
     <!-- MATCH SCREEN -->
-    <div id="match-screen" style="display:none;">
-        <h2 id="round-title"></h2>
+    <div id="match-screen" class="screen" style="display: none;">
+        <div class="container">
+            <h2 id="round-title"></h2>
 
-        <div class="match">
-            <div class="card" onclick="selectWinner(0)">
-                <img id="img1">
-                <p id="name1"></p>
-            </div>
+            <div class="match">
+                <div class="card" onclick="selectWinner(0)">
+                    <img id="img1" src="" alt="Food 1">
+                    <h3 id="name1"></h3>
+                </div>
 
-            <h1>VS</h1>
+                <div class="vs">VS</div>
 
-            <div class="card" onclick="selectWinner(1)">
-                <img id="img2">
-                <p id="name2"></p>
+                <div class="card" onclick="selectWinner(1)">
+                    <img id="img2" src="" alt="Food 2">
+                    <h3 id="name2"></h3>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- RESULT SCREEN -->
-    <div id="result-screen" style="display:none;">
-        <h1>Champion</h1>
-        <img id="winner-img">
-        <h2 id="winner-name"></h2>
-        <button onclick="restart()">Restart</button>
+    <div id="result-screen" class="screen" style="display: none;">
+        <div class="container">
+            <h1>Champion</h1>
+            <img id="winner-img" src="" alt="Winner">
+            <h2 id="winner-name"></h2>
+            <button onclick="restart()">Restart</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
