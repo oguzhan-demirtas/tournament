@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop 23:59</title>
+  <link rel="stylesheet" href="story.css" />
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <main class="story-app">
+    <header class="story-header">
+      <h1>Loop 23:59</h1>
+      <p class="subtitle">A choice-based time loop story</p>
+    </header>
+
+    <section class="stats-panel">
+      <div class="stat-box">
+        <span class="stat-label">Bravery</span>
+        <span id="bravery">0</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Fear</span>
+        <span id="fear">0</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Curiosity</span>
+        <span id="curiosity">0</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Awareness</span>
+        <span id="awareness">0</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Loop</span>
+        <span id="loopCount">0</span>
+      </div>
+    </section>
+
+    <section class="story-card">
+      <div class="scene-id" id="sceneId">SCENE: S1</div>
+      <div class="story-text" id="storyText"></div>
+      <div class="choices" id="choices"></div>
+    </section>
+
+    <section class="control-panel">
+      <button id="restartBtn" class="secondary-btn">Restart Story</button>
+    </section>
+  </main>
+
+  <script src="story.js"></script>
+</body>
+</html>

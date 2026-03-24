@@ -1,67 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Tournament</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oak Stories</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- MENU ICON -->
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <!-- HOME SCREEN -->
+  <section id="home-screen" class="page active">
+    <div class="home-shell">
 
-    <!-- SIDEBAR -->
-    <div id="sidebar" class="sidebar">
-        <h2>Categories</h2>
-        <ul>
-            <li>🍔 Foods</li>
-            <li>🎬 Movies</li>
-            <li>⚽ Players</li>
-            <li>🚗 Cars</li>
-        </ul>
-    </div>
-
-    <!-- START SCREEN -->
-    <div id="start-screen" class="screen">
-        <div class="container">
-            <h1>Food Tournament</h1>
-            <p>Choose your favorite and find the champion!</p>
-            <button onclick="startGame()">Start</button>
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-icon">🌳</div>
+          <div class="brand-text">
+            <h2>OAK</h2>
+            <span>STORIES</span>
+          </div>
         </div>
-    </div>
 
-    <!-- MATCH SCREEN -->
-    <div id="match-screen" class="screen" style="display: none;">
-        <div class="container">
-            <h2 id="round-title"></h2>
+        <nav class="nav-links">
+          <a href="#" class="active-link">HOME</a>
+          <a href="#">CATEGORIES</a>
+        </nav>
 
-            <div class="match">
-                <div class="card" onclick="selectWinner(0)">
-                    <img id="img1" src="" alt="Food 1">
-                    <h3 id="name1"></h3>
-                </div>
-
-                <div class="vs">VS</div>
-
-                <div class="card" onclick="selectWinner(1)">
-                    <img id="img2" src="" alt="Food 2">
-                    <h3 id="name2"></h3>
-                </div>
-            </div>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search stories..." oninput="filterStories()" />
         </div>
-    </div>
+      </header>
 
-    <!-- RESULT SCREEN -->
-    <div id="result-screen" class="screen" style="display: none;">
-        <div class="container">
-            <h1>Champion</h1>
-            <img id="winner-img" src="" alt="Winner">
-            <h2 id="winner-name"></h2>
-            <button onclick="restart()">Restart</button>
+      <main class="hero">
+        <h1>CHOOSE<br>YOUR STORY</h1>
+        <p>Every choice shapes your journey.</p>
+
+        <div class="category-row">
+          <button class="cat-btn active-cat" onclick="filterByCategory('all')">ALL</button>
+          <button class="cat-btn" onclick="filterByCategory('rpg')">RPG</button>
+          <button class="cat-btn" onclick="filterByCategory('fantasy')">FANTASY</button>
+          <button class="cat-btn" onclick="filterByCategory('sci-fi')">SCI-FI</button>
+          <button class="cat-btn" onclick="filterByCategory('mystery')">MYSTERY</button>
+          <button class="cat-btn" onclick="filterByCategory('horror')">HORROR</button>
+          <button class="cat-btn" onclick="filterByCategory('romance')">ROMANCE</button>
         </div>
-    </div>
 
-    <script src="script.js"></script>
+        <section class="featured-section">
+          <h3>Featured Stories</h3>
+          <div class="story-grid" id="story-grid"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <!-- STORY DETAIL SCREEN -->
+  <section id="story-detail-screen" class="page">
+    <div class="detail-shell">
+      <button class="ghost-btn" onclick="goHome()">← Back</button>
+
+      <div class="detail-card">
+        <img id="detail-image" src="" alt="Story Cover" />
+        <div class="detail-info">
+          <span id="detail-category" class="detail-badge"></span>
+          <h1 id="detail-title"></h1>
+          <p id="detail-description"></p>
+          <button onclick="startGame()">Start Story</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATCH SCREEN -->
+  <section id="match-screen" class="page">
+    <div class="game-shell">
+      <button class="ghost-btn" onclick="goHome()">← Back to Menu</button>
+      <h2 id="round-title"></h2>
+
+      <div class="match">
+        <div class="card" onclick="selectWinner(0)">
+          <img id="img1" src="" alt="Choice 1" />
+          <h3 id="name1"></h3>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="card" onclick="selectWinner(1)">
+          <img id="img2" src="" alt="Choice 2" />
+          <h3 id="name2"></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="result-screen" class="page">
+    <div class="result-shell">
+      <button class="ghost-btn" onclick="goHome()">← Back to Menu</button>
+      <h1>Your Final Choice</h1>
+      <img id="winner-img" src="" alt="Winner" />
+      <h2 id="winner-name"></h2>
+      <button onclick="playAgain()">Play Again</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
